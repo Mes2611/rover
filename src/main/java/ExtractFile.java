@@ -4,17 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ExtractFile {
+public class ExtractFile
+{
 
-    public List<String> readFile(File file) throws FileNotFoundException {
+    /**
+     * lecture du fichier
+     * @param file
+     * @return
+     * @throws FileNotFoundException
+     */
+    public static List<String> readFile(File file) throws FileNotFoundException
+    {
         List<String> extractLine = new ArrayList<>();
-        try {
+        try
+        {
             Scanner scanner = new Scanner(file);
 
-            while (scanner.hasNextLine()) {
+            while (scanner.hasNextLine())
+            {
                 extractLine.add(scanner.nextLine());
             }
-        }catch(FileNotFoundException fe) {
+            scanner.close();
+        }
+        catch (FileNotFoundException fe)
+        {
             throw fe;
         }
 
